@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Kevin Tsui`s Personal Blog">
+    <meta name="author" content="Kevin Tsui">
+  
+    <title>Kevin Tsui`s Workshop</title>
+    <link rel="icon" type="../image/x-icon" href="../img/favicon-mj.ico" />
+  
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  
+    <!-- Custom styles for this template -->
+    <link href="../css/kevinblog.min.css" rel="stylesheet">
+  
+  </head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">Kevin Tsui`s Workshop</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home 主页</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../posts.html">Posts 文章</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../works.html">Works 作品</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About 关于我</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('ProceduralLake/ProceduralLake.png')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>虚幻引擎程序化湖泊生成工具</h1>
+            <h2 class="subheading">Houdini离线湖泊地貌生成</h2>
+            <span class="meta">Posted by
+              <a href="#!">Kevin Tsui</a>
+              on September 10, 2020</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-md-10 mx-auto">
+          <p>虚幻引擎湖泊地貌程序化生成工具，使用Houdini为引擎生成湖泊的水面模型，以及湖水的DepthMap。根据湖水和地形的接触线生成湖泊地貌的地形材质(Landscape Material)，并利用地形材质的Material Layer Mask剔除场景中的植被。一切，都在引擎中程序化完成。</p>
+        </div>
+
+        <link href="ProceduralLake/ProceduralLake_embed.css" rel="stylesheet" type="text/css">
+        <div style="text-align: center;width: 100%;height: 100%; ">
+          <iframe class="tscplayer_inline" id="embeddedSmartPlayerInstance" src="ProceduralLake/ProceduralLake_player.html?embedIFrameId=embeddedSmartPlayerInstance" scrolling="no" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+        </div>
+  
+        <div class="col-lg-10 col-md-10 mx-auto">
+          <h2 class="section-heading">方案实现</h2>
+
+          <p>在引擎中使用USplineComponent拖拽生成一条闭合的曲线，根据这个曲线框选的范围。使用UProceduralMeshComponent生成湖面的预览模型。在Houdini中生成湖水的模型和DepthMap，同时生成地形材质的Layer Mask。</p>
+
+          <blockquote class="blockquote">没有使用 HoudiniEngine，所有接口方法均使用引擎的 C++实现。</blockquote>
+
+          <h2 class="section-heading">技术特性</h2>
+          <ul>
+            <li>引擎中通过Spline实时控制湖泊区域范围；&nbsp;</li>
+            <li>将Spline曲线和工具参数后台传给Houdini；</li>
+            <li>在Houdini中生成湖水模型和DepthMap贴图并传回引擎；</li>
+            <li>根据水面和地形接触线生成地表材质；</li>
+            <li>根据生成的地形材质Layer Mask剔除植被；</li>
+          </ul>
+
+          <h2 class="section-heading">参数设置</h2>
+          <p>湖泊工具通用参数配置文件，使用自定义的UObject作为参数输入，一般配置统一的参数（文件保存路径，材质等），可以被重复使用，如下图： </p>
+          <a href="ProceduralLake/ProceduralLakeSpawnerParams.png">
+            <div style="text-align: center;">
+              <img class="img-fluid" src="ProceduralLake/ProceduralLakeSpawnerParams.png" alt="">
+            </div>
+          </a><span class="caption text-muted">工具配置文件参数</span>
+          <p>湖泊工具的Details参数面板上的参数配置，控制每个工具独特的参数，如下图： </p>
+          <a href="ProceduralLake/ProceduralLakeActorParams.png">
+            <div style="text-align: center;">
+              <img class="img-fluid" sizes="(max-width: 600px) 200px, 50vw" src="ProceduralLake/ProceduralLakeActorParams.png" alt="">
+            </div>
+          </a><span class="caption text-muted">湖泊工具参数</span>
+
+          <p>Developed by <a href="#!">Kevin Tsui</a>. Wrote by <a href="#!">Kevin Tsui</a>.</p>
+        </div>
+      </div>
+    </div>    
+  </article>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="https://www.linkedin.com/in/iceprincefounder/">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/iceprincefounder/">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Kevin Tsui 2020</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../js/kevinblog.min.js"></script>
+
+</body>
+
+</html>

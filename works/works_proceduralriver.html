@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Kevin Tsui`s Personal Blog">
+    <meta name="author" content="Kevin Tsui">
+  
+    <title>Kevin Tsui`s Workshop</title>
+    <link rel="icon" type="../image/x-icon" href="../img/favicon-mj.ico" />
+  
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  
+    <!-- Custom styles for this template -->
+    <link href="../css/kevinblog.min.css" rel="stylesheet">
+  
+  </head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">Kevin Tsui`s Workshop</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home 主页</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../posts.html">Posts 文章</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../works.html">Works 作品</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About 关于我</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('ProceduralRiver/ProceduralRiver.png')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>虚幻引擎程序化河流生成工具</h1>
+            <h2 class="subheading">Houdini离线河流地貌生成</h2>
+            <span class="meta">Posted by
+              <a href="#!">Kevin Tsui</a>
+              on September 10, 2020</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-md-10 mx-auto">
+          <p>程序化河流生成工具是根据《地平线·零之曙光》的技术分享，在Houdini中实现并优化了它的实现和算法，然后通过UE4端的开发，将方案工具化，同时进行了参数序列化的设计，兼顾了美术效果、功能和易用性。</p>
+        </div>
+
+        <link href="ProceduralRiver/ProceduralRiver_embed.css" rel="stylesheet" type="text/css">
+        <div style="text-align: center;width: 100%;height: 100%; ">
+          <iframe class="tscplayer_inline" id="embeddedSmartPlayerInstance" src="ProceduralRiver/ProceduralRiver_player.html?embedIFrameId=embeddedSmartPlayerInstance" scrolling="no" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+        </div>
+  
+        <div class="col-lg-10 col-md-10 mx-auto">
+          <h2 class="section-heading">原型</h2>
+
+          <p>基于《地平线·零之曙光》的技术分享。</p>
+
+          <a href="#"><blockquote class="blockquote">Horizon Zero Dawn: Procedural Rivers & Wires by Ben Schrijvers</blockquote></a>
+
+          <h2 class="section-heading">方案实现</h2>
+
+          <p>河流生成的步骤大致如下：</p>
+          <ol>
+            <li>在引擎中创建基础曲线信息，设置参数；&nbsp;</li>
+            <li>将曲线和参数传入Houdini，进行计算；</li>
+            <li>将最终结果传回引擎，查看生成效果；</li>
+          </ol>
+
+          <h2 class="section-heading">技术特性</h2>
+          <ul>
+            <li>引擎中使用Spline曲线控制河流流向，Spline曲线自动吸附地形；&nbsp;</li>
+            <li>引擎中Spline曲线信息和工具参数通过后台传入Houdini；&nbsp;</li>
+            <li>Houdini中河流曲线上的点向自动向低处滑落；&nbsp;</li>
+            <li>Houdini中河流曲线始终从高往低，会自动纠正河流流向；</li>
+            <li>Houdini中河流会侵蚀地形，生成峡谷地貌；</li>
+            <li>根据水面和地形接触线生成地表材质；</li>
+            <li>根据河流生成的地形材质Mask剔除植被；</li>
+          </ul>
+          
+          <h2 class="section-heading">参数设置</h2>
+          <p>河流工具使用自定义的UObject作为参数输入，这个文件一般会配置统一的参数（文件保存路径，材质等），可以被重复使用，如下图： </p>
+          <a href="ProceduralRiver/ProceduralRiverSpawnerParams.png">
+            <div style="text-align: center;">
+              <img class="img-fluid" src="ProceduralRiver/ProceduralRiverSpawnerParams.png" alt="">
+            </div>
+          </a><span class="caption text-muted">工具配置文件参数</span>
+          <p>同时，用户需要通过工具Actor的Details参数面板上的参数，控制每条河流独特的参数（宽度，深度等），如下图： </p>
+          <a href="ProceduralRiver/ProceduralRiverActorParams.png">
+            <div style="text-align: center;">
+              <img class="img-fluid" sizes="(max-width: 600px) 200px, 50vw" src="ProceduralRiver/ProceduralRiverActorParams.png" alt="">
+            </div>
+          </a><span class="caption text-muted">河流工具参数</span>
+
+          <hr>
+          <p>Developed by <a href="#!">Kevin Tsui</a>. Wrote by <a href="#!">Kevin Tsui</a>.</p>
+        </div>
+      </div>
+    </div>    
+  </article>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="https://www.linkedin.com/in/iceprincefounder/">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/iceprincefounder/">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Kevin Tsui 2020</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../js/kevinblog.min.js"></script>
+
+</body>
+
+</html>
