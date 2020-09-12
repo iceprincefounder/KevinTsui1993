@@ -6,7 +6,7 @@
 
 .tscplayer_inline {
 	position:static;
-	margin: 30px;
+	margin: 0px;
 	width: 852px;
 	height: 480px;
 	z-index:auto;
