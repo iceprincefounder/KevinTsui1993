@@ -101,18 +101,26 @@
           </ul>
 
           <h2 class="section-heading">参数设置</h2>
-          <p>湖泊工具通用参数配置文件，使用自定义的UObject作为参数输入，一般配置统一的参数（文件保存路径，材质等），可以被重复使用，如下图： </p>
+          <p>湖泊工具通用参数配置文件，使用自定义的UObject作为参数输入，一般配置统一的参数（文件保存路径，材质等），可以被重复使用。 </p>
           <a href="ProceduralLake/ProceduralLakeSpawnerParams.png">
             <div style="text-align: center;">
               <img class="img-fluid" src="ProceduralLake/ProceduralLakeSpawnerParams.png" alt="">
             </div>
           </a><span class="caption text-muted">工具配置文件参数</span>
-          <p>湖泊工具的Details参数面板上的参数配置，控制每个工具独特的参数，如下图： </p>
+          <p>湖泊工具的Details参数面板上的参数配置，控制每个工具独特的参数。 </p>
           <a href="ProceduralLake/ProceduralLakeActorParams.png">
             <div style="text-align: center;">
               <img class="img-fluid" sizes="(max-width: 600px) 200px, 50vw" src="ProceduralLake/ProceduralLakeActorParams.png" alt="">
             </div>
           </a><span class="caption text-muted">湖泊工具参数</span>
+
+          <h2 class="section-heading">Houdini算法</h2>
+          <p>Houdini拿到Unreal传过来的曲线和参数后，在一个CompileBlock中完成地形、湖面模型和湖水DepthMap贴图的生成，极大提高节点执行效率。</p>
+          <a href="ProceduralLake/ProceduralLakeHoudini.png">
+            <div style="text-align: center;">
+              <img class="img-fluid" src="ProceduralLake/ProceduralLakeHoudini.png" alt="">
+            </div>
+          </a><span class="caption text-muted">Houdini中节点算法</span>
 
           <p>Developed by <a href="#!">Kevin Tsui</a>. Wrote by <a href="#!">Kevin Tsui</a>.</p>
         </div>
