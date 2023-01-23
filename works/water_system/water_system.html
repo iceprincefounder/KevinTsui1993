@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Kevin Tsui`s Personal Blog">
+    <meta name="author" content="Kevin Tsui">
+  
+    <title>Kevin Tsui`s Billboard</title>
+    <link rel="icon" type="../../image/x-icon" href="../../img/favicon_mario_bros.ico" />
+  
+    <!-- Bootstrap core CSS -->
+    <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+    <!-- Custom fonts for this template -->
+    <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  
+    <!-- Custom styles for this template -->
+    <link href="../../css/kevinblog.min.css" rel="stylesheet">
+  
+  </head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="../../index.html">Kevin Tsui`s Billboard</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../../index.html">Home 主页</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../posts.html">Posts 文章</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../works.html">Works 作品</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../about.html">About 关于我</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('water_system_img.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>开放世界水体系统构建和渲染</h1>
+            <h2 class="subheading">为《刺客信条手游》开发的开放世界水体渲染</h2>
+            <span class="meta">Posted by
+              <a href="../../about.html">徐凯(Kevin)</a>
+              on 2022-02-23</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-md-10 mx-auto">
+        <p>本篇介绍的水体系统，是为《刺客信条》手游开发的一套高质量水体生成工具和渲染系统，参考了众多成熟的3A游戏的做法开发，能够适应多平台，同时能保证水体渲染美术品质。</p>
+      </div>
+
+      <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+      <div style="text-align: center;width: 100%;height: 100%; ">
+        <div class="col-lg-10 col-md-10 mx-auto">
+          <p style="text-align: left;">技术方案 PPT演示：</p>
+        </div>
+        <iframe src="https://onedrive.live.com/embed?cid=B5A0D6BDF05E183D&resid=B5A0D6BDF05E183D%21382&authkey=AOvwkzh_RqCX8W0&em=2" width="100%" height="666px" frameborder="0" scrolling="no"></iframe>
+        <span style="text-align: right;" class="caption text-muted">加载速度较慢，请在PC端打开</span>
+      </div>
+
+      <div class="col-lg-10 col-md-10 mx-auto">
+        <p>基于UnrealEngine的Mobile ES31渲染管线，实现了以下渲染特性，包括波形模拟和BRDF在内的高级光照特性。优化在手机上的兼容性和渲染性能，整个管线基于物理渲染。</p>
+      </div>
+
+      <div class="col-lg-10 col-md-10 mx-auto">
+
+        <h2 class="section-heading">参考资料</h2>
+        <ul>
+          <li><a href="https://github.com/windystrife/UnrealEngine_NVIDIAGameWorks/tree/4.18-GameWorks/WaveworksTester">NAVDIA WaveWorks</a></li>
+          <li><a href="https://80.lv/articles/horizon-zero-dawn-procedural-rivers-wires/">Horizon Zero Dawn: Procedural Rivers & Wire</a></li>
+          <li><a href="http://advances.realtimerendering.com/s2016/">Rendering Rapids in Uncharted 4</a></li>
+          <li><a href="https://www.gdcvault.com/play/1025555/Advanced-Graphics-Techniques-Tutorial-Water">Water Rendering in FarCry 5（2018）</a></li>
+          <li><a href="https://www.gdcvault.com/play/1021761/Adaptive-Virtual-Texture-Rendering-in">Adaptive Virtual Texture Rendering in Far Cry 4</a></li>
+          <li><a href="https://arm-software.github.io/opengl-es-sdk-for-android/ocean_f_f_t.html">Fast Fourier Transform</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Trochoidal_wave">Gerstner Wave</a></li>
+          <li><a href="https://thebookofshaders.com/13/">Fractal Brownian Motion</a></li>
+          <li><a href="#">[S´ebastien Lagarde et al 2014, "Moving Frostbite to Physically Based Rendering 3.0"]</a></li>
+          <li><a href="https://www.fxguide.com/fxfeatured/assassins-creed-iii-the-tech-behind-or-beneath-the-action">Assassin’s Creed III: The tech behind (or beneath) the action</a></li>
+          
+        </ul>
+
+        <hr>
+        <p>Developed by <a href="../../about.html">徐凯(Kevin)</a>. </p>
+      </div>
+    </div>
+  </div>    
+</article>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="https://www.linkedin.com/in/iceprincefounder/">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/iceprincefounder/">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; 徐門子美(Kevin) 2023</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../../vendor/jquery/jquery.min.js"></script>
+  <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../../js/kevinblog.min.js"></script>
+
+</body>
+
+</html>
