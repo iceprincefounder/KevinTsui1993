@@ -54,17 +54,17 @@
   </nav>
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('sky_clouds_2d_img.jpg')">
+  <header class="masthead" style="background-image: url('water-system-img.jpg')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
-            <h1>基于图片的2D体积云渲染</h1>
-            <h2 class="subheading">接收光照的2D体积云渲染方案</h2>
+            <h1>开放世界水体系统构建和渲染</h1>
+            <h2 class="subheading">为《刺客信条手游》开发的开放世界水体渲染</h2>
             <span class="meta">POSTED BY
               <a href="../../about.html">🦸‍♂️徐凯 (KEVIN)</a>
-              2021-02-22</span>
+              2022-02-23</span>
           </div>
         </div>
       </div>
@@ -76,7 +76,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-10 col-md-10 mx-auto">
-        <p>本篇介绍一种基于2D图片的体积云渲染方案，手机上使用VolumetricClouds无法保证性能，这里使用了一种近似的方式将云层体积数据烘焙到贴图中，采样光照信息，近似渲染云层的体积感和光照。</p>
+        <p>本篇介绍的水体系统，是为《刺客信条》手游开发的一套高质量水体生成工具和渲染系统，参考了众多成熟的3A游戏的做法开发，能够适应多平台，同时能保证水体渲染美术品质。</p>
       </div>
 
       <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -84,19 +84,33 @@
         <div class="col-lg-10 col-md-10 mx-auto">
           <p style="text-align: left;">技术方案 PPT演示：</p>
         </div>
-        <iframe src="https://onedrive.live.com/embed?cid=B5A0D6BDF05E183D&resid=B5A0D6BDF05E183D%21380&authkey=ABsvxB5QwgPycCs&em=2" width="100%" height="666px" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://onedrive.live.com/embed?cid=B5A0D6BDF05E183D&resid=B5A0D6BDF05E183D%21382&authkey=AOvwkzh_RqCX8W0&em=2" width="100%" height="666px" frameborder="0" scrolling="no"></iframe>
         <span style="text-align: right;" class="caption text-muted">加载速度较慢，请在PC端打开</span>
+      </div>
+
+      <div class="col-lg-10 col-md-10 mx-auto">
+        <p>基于UnrealEngine的Mobile ES31渲染管线，实现了以下渲染特性，包括波形模拟和BRDF在内的高级光照特性。优化在手机上的兼容性和渲染性能，整个管线基于物理渲染。</p>
       </div>
 
       <div class="col-lg-10 col-md-10 mx-auto">
 
         <h2 class="section-heading">参考资料</h2>
         <ul>
-          <li><a href="https://ronkrukkert.nl/houdini/ubisoft-starlink-battle-for-atlas-cloudmaps/">Ubisoft – Starlink: Battle For Atlas Cloudmaps</a></li>
+          <li><a href="https://github.com/windystrife/UnrealEngine_NVIDIAGameWorks/tree/4.18-GameWorks/WaveworksTester">NAVDIA WaveWorks</a></li>
+          <li><a href="https://80.lv/articles/horizon-zero-dawn-procedural-rivers-wires/">Horizon Zero Dawn: Procedural Rivers & Wire</a></li>
+          <li><a href="http://advances.realtimerendering.com/s2016/">Rendering Rapids in Uncharted 4</a></li>
+          <li><a href="https://www.gdcvault.com/play/1025555/Advanced-Graphics-Techniques-Tutorial-Water">Water Rendering in FarCry 5（2018）</a></li>
+          <li><a href="https://www.gdcvault.com/play/1021761/Adaptive-Virtual-Texture-Rendering-in">Adaptive Virtual Texture Rendering in Far Cry 4</a></li>
+          <li><a href="https://arm-software.github.io/opengl-es-sdk-for-android/ocean_f_f_t.html">Fast Fourier Transform</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Trochoidal_wave">Gerstner Wave</a></li>
+          <li><a href="https://thebookofshaders.com/13/">Fractal Brownian Motion</a></li>
+          <li><a href="#">[S´ebastien Lagarde et al 2014, "Moving Frostbite to Physically Based Rendering 3.0"]</a></li>
+          <li><a href="https://www.fxguide.com/fxfeatured/assassins-creed-iii-the-tech-behind-or-beneath-the-action">Assassin’s Creed III: The tech behind (or beneath) the action</a></li>
+          
         </ul>
 
         <hr>
-        <p>Developed by <a href="../../about.html">徐凯(Kevin)</a>. </p>
+        <p>Developed by <a href="../../about.html">🦸‍♂️徐凯(Kevin)</a>. </p>
       </div>
     </div>
   </div>    
